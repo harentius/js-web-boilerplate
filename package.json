@@ -1,0 +1,13 @@
+{
+  "name": "js-web-boilerplate",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Boilerplate for typical client-server web project",
+  "author": "Yaroslav Osypenko",
+  "license": "MIT",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "start-be": "yarn workspace js-web-boilerplate-server start",
+    "start-fe": "REACT_APP_BACKEND_BASE_URI='http://localhost:8080' yarn workspace js-web-boilerplate-client start"
+  }
+}

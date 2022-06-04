@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  server:
+    build:
+      dockerfile:  server/Dockerfile
+      # I need lock file. Lock file is only one because I use workspaces. That's why I need the root context
+      context: ./
+    ports:
+      - 60101:8080
+  client:
+    build:
+      dockerfile:  client/Dockerfile
+      # I need lock file. Lock file is only one because I use workspaces. That's why I need the root context
+      context: ./
+      args:
+        REACT_APP_BACKEND_BASE_URI: http://localhost:60101
+    ports:
+      - 60100:80
